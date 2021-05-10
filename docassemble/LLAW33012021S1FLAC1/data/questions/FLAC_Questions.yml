@@ -1,0 +1,62 @@
+---
+# First question, yesno if user wants to build a fence.
+question: |
+subquestion: Are you wanting to build a fence?
+yesno: FLACeligible
+---
+# Second question, a noyes is used isntead as we want yes to direct to ineligible as that is outside the scope of our app. 
+question: |
+subquestion: Was there already a fence there?
+noyes: FLACeligible
+---
+# Third question, all questions so far determine if user's issue is within scope.
+question: Are you the owner of the property?
+yesno: FLACeligible
+---
+# Branching question that decides what type of user the person is. 
+question: |
+subquestion: Which of the below explains your situation best?
+choices:
+  - I'm responding to a Form 1 notice.: FLACresponding
+  - I have sent a Form 1 notice and want to know my options.: FLACWaiting
+  - I'm the owner of the property and serve Form 1 notice to build a fence.: FLACeligible
+---
+#Questions for Form 1 FLACeligible begins
+# Name of neighbours and address or description of neighbours land
+question: What is the neighbours full name and address?
+subquestion: If you do not know the address you can describe the land.
+fields:
+  - Name: Form1Respondant
+  - Address or Description of Land: Form1RespondantLand
+---
+#Question for users address
+question: What is your full address?
+subquestion: This should be for the property you want to build the fence on. 
+fields:
+  - Address: Form1MyLand
+---
+#Questions about the fence
+question: Describe the proposed fence
+fields:
+  - What length will the fence be in metres?: Form1FLength
+  - Where on the property will the fence be?: Form1FLength2
+  - What is the type of fence?: Form1FType
+  - What cost have you been quoted?: Form1FCost
+  - How is the cost split?: Form1Csplit
+---
+#Questions about the fencing company, en garde!
+question: What fencing company has quoted the work?
+fields:
+  - Name of company: Form1CName
+  - Address of company: Form1CAddy
+---
+#Final questions for Form 1 ending with name and address for cross notice
+question: What is your full name and postal address?
+subquestion: This is required for cross notice. 
+fields:
+  - Name: Form1MyName
+  - Postal address: Form1MyAddy
+  - Today's date: Form1Date
+    default:  today
+---
+
