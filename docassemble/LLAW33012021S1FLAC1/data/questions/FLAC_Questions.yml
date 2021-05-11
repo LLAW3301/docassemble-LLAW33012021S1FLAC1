@@ -41,8 +41,8 @@ fields:
   - What length will the fence be in metres?: Form1FLength
   - Where on the property will the fence be?: Form1FLength2
   - What is the type of fence?: Form1FType
-  - What cost have you been quoted?: Form1FCost
-  - How is the cost split?: Form1Csplit
+  - What have you been quoted to build the fence? $: Form1FCost
+  - Amount you wish the adjacent property owner contributes? $: Form1Csplit
 ---
 #Questions about the fencing company, en garde!
 question: What fencing company has quoted the work?
@@ -56,7 +56,7 @@ subquestion: This is required for cross notice.
 fields:
   - Name: Form1MyName
   - Postal address: Form1MyAddy
-  - Today's date: Form1Date
+  - Today's date (DD/MM/YYYY): Form1Date
     default:  today
 ---
 
