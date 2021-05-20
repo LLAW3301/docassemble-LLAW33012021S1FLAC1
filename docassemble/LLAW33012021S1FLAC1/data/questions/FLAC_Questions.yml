@@ -1,17 +1,16 @@
 ---
 # First question, yesno if user wants to build a fence.
-question: |
-subquestion: Are you wanting to build a fence?
-yesno: FLACeligible
+question: Do you wish to build a fence where one does not exist and are you the owner of the property?
+yesno: FLACeligibleQ1
 ---
 # Second question, a noyes is used isntead as we want yes to direct to ineligible as that is outside the scope of our app. 
 question: |
 subquestion: Was there already a fence there?
-noyes: FLACeligible
+noyes: FLACeligibleQ2
 ---
 # Third question, all questions so far determine if user's issue is within scope.
 question: Are you the owner of the property?
-yesno: FLACeligible
+yesno: FLACeligibleQ3
 ---
 # Branching question that decides what type of user the person is. 
 question: |
@@ -23,22 +22,53 @@ choices:
 ---
 #Questions for Form 1 FLACeligible begins
 # Name of neighbours and address or description of neighbours land
-question: What is the neighbours full name and address?
-subquestion: If you do not know the address you can describe the land.
+question: What is your neighbour's full name and address?
+subquestion: Insert option to describe the land from a legal POV. If you are unsure what a question means, click the green text. 
 fields:
-  - Name: Form1Respondant
-  - Address or Description of Land: Form1RespondantLand
+  - First Name: Form1Respondant
+    help: |
+      your neighbour's first name (e.g. John).
+  - Surname: Form1Respondant
+    help: |
+      your neighbour's surname (e.g. Smith).
+  - Street number and name: Form1RespondantStreet
+    hint: e.g. 1 Grove Street
+  - Suburb: Form1RespondandSuburb
+  - City: Form1RespondantCity
+  - State: Form1RespondantState
+    choices:
+      - SA
+      - NT
+      - NSW
+      - QLD
+      - WA
+      - ACT
+  - Description of land (optional): Form1RespondantLand
+    input type: area
+    required: false
 ---
 #Question for users address
 question: What is your full address?
 subquestion: This should be for the property you want to build the fence on. 
 fields:
-  - Address: Form1MyLand
+  - Street number and name: Form1OwnerStreet
+    hint: e.g. 1 Grove Street
+  - Suburb: Form1OwnerSuburb
+  - City: Form1OwnerCity
+  - State: Form1OwnerState
+    choices:
+      - SA
+      - NT
+      - NSW
+      - QLD
+      - WA
+      - ACT
 ---
 #Questions about the fence
 question: Describe the proposed fence
 fields:
   - What length will the fence be in metres?: Form1FLength
+    datatype: number
   - Where on the property will the fence be?: Form1FLength2
   - What is the type of fence?: Form1FType
   - What have you been quoted to build the fence? $: Form1FCost

@@ -2,13 +2,14 @@
 #Welcome screen that contains explanation of app and a legal disclaimer. 
 mandatory: True
 question:  |
-  Flinders Legal Centre Fencing App
+  # Flinders Legal Centre Fencing Application
 subquestion: |
-  Welcome to the Flinders Legal Centre Fencing App. This application is designed to help you with establishing a fence where one does not exist or responding to a form 1 request from someone else seeking to build a fence.
+ ## Welcome! 
+ > Should you wish to build a fence where one does not exist this application will assit you in creating a Form 1 document. This application will also assit you in responding to a Form 1 request.
 
-  This application is not providing legal advice, its purpose is just to help with filing forms or responding to forms served to you. 
+  > ** *This application does NOT provide legal advice.* **
 
-  Do you understand and agree to continue?
+  > Do you understand and agree to continue?
 
 buttons:
   - Disagree: exit
@@ -22,7 +23,7 @@ mandatory: True
 #First block used to determine whether user is within scope of application.  
 # If we're eligible then the questions for Form 1 are asked so it can be filed.
 code: |
-  if FLACeligible == True:
+  if FLACeligibleQ1 == True:
     Form1
   else: pass
 ---
