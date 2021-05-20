@@ -23,19 +23,19 @@ choices:
 #Questions for Form 1 FLACeligible begins
 # Name of neighbours and address or description of neighbours land
 question: What is your neighbour's full name and address?
-subquestion: Insert option to describe the land from a legal POV. If you are unsure what a question means, click the green text. 
+subquestion: TODO option to describe the land from a legal POV. If you are unsure what a question means, click the green text. 
 fields:
-  - First Name: Form1Respondant
+  - First Name: Form1RespondantFname
     help: |
       your neighbour's first name (e.g. John).
-  - Surname: Form1Respondant
+  - Surname: Form1RespondantSname
     help: |
       your neighbour's surname (e.g. Smith).
-  - Street number and name: Form1RespondantStreet
+  - Street number and name: F1RStreet
     hint: e.g. 1 Grove Street
-  - Suburb: Form1RespondandSuburb
-  - City: Form1RespondantCity
-  - State: Form1RespondantState
+  - Suburb: F1RSuburb
+  - City: F1RCity
+  - State: F1RState
     choices:
       - SA
       - NT
@@ -43,7 +43,7 @@ fields:
       - QLD
       - WA
       - ACT
-  - Description of land (optional): Form1RespondantLand
+  - Description of land (optional): F1RLand
     input type: area
     required: false
 ---
@@ -51,11 +51,11 @@ fields:
 question: What is your full address?
 subquestion: This should be for the property you want to build the fence on. 
 fields:
-  - Street number and name: Form1OwnerStreet
+  - Street number and name: F1OStreet
     hint: e.g. 1 Grove Street
-  - Suburb: Form1OwnerSuburb
-  - City: Form1OwnerCity
-  - State: Form1OwnerState
+  - Suburb: F1OSuburb
+  - City: F1OCity
+  - State: F1OState
     choices:
       - SA
       - NT
@@ -66,27 +66,62 @@ fields:
 ---
 #Questions about the fence
 question: Describe the proposed fence
+subquestion: TODO Determine type of fence requiements
 fields:
-  - What length will the fence be in metres?: Form1FLength
+  - What length will the fence be in metres?: F1Length
     datatype: number
-  - Where on the property will the fence be?: Form1FLength2
-  - What is the type of fence?: Form1FType
-  - What have you been quoted to build the fence? $: Form1FCost
-  - Amount you wish the adjacent property owner contributes? $: Form1Csplit
+    hint: e.g. 3.20
+  - Where on your property will the fence be?: F1Location
+    input type: radio
+    choices:
+      - North
+      - East
+      - South
+      - West
+    help: |
+      e.g. On the north side of my property
+  - What is the type of fence?: F1Type
+    required: false
+    input type: radio
+    choices:
+      - Brick
+      - Metal
+      - Stone
+  - What have you been quoted to build the fence?: F1Cost
+    datatype: currency
+    min: 0
+  - Amount you wish the adjacent property owner contributes (if applicable)?: F1Split
+    required: false
+    datatype: currency
+    min: 0
+    default: 0.0
 ---
 #Questions about the fencing company, en garde!
 question: What fencing company has quoted the work?
 fields:
-  - Name of company: Form1CName
-  - Address of company: Form1CAddy
+  - Name of company: F1Cname
+    hint: e.g. Adelaide Fence Centre
+  - Street number and name: F1FenceCoStreet
+    hint: e.g. 1 Grove Street
+  - Suburb: F1FenceCoSuburb
+  - City: F1FenceCoCity
+  - State: F1FenceCoState
+    choices:
+      - SA
+      - NT
+      - NSW
+      - QLD
+      - WA
+      - ACT
 ---
 #Final questions for Form 1 ending with name and address for cross notice
-question: What is your full name and postal address?
-subquestion: This is required for cross notice. 
+question: Final Information
+subquestion: This is required for cross notice. Please enter your Full name and the date TODO Is postal address necessary? Can we get todays date without getting the users input would this be better?
 fields:
-  - Name: Form1MyName
-  - Postal address: Form1MyAddy
-  - Today's date (DD/MM/YYYY): Form1Date
-    default:  today
+  - First Name: F1MyFname
+  - Surname: F1MySname
+#  - Postal address: Form1MyAddy
+  - Today's date: Form1Date
+    datatype: date
 ---
 
