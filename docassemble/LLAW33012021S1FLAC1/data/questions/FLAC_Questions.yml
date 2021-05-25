@@ -29,7 +29,7 @@ choices:
 ---
 # Name of neighbours and address or description of neighbours land
 question: What is the neighbours full name and address?
-subquestion: This should be the adjacent property details.
+subquestion: This should be the adjacent property's details.
 fields:
   - Full name: Form1Respondant
     help: |
@@ -86,17 +86,17 @@ fields:
     required: false
     input type: radio
     choices:
-      - Brick
-      - Metal
-      - Stone
+      - Masonry 
+      - Other
   - What have you been quoted to build the fence?: Form1FCost 
     datatype: currency
     min: 0
-  - Amount you wish the adjacent property owner contributes (if applicable)?: Form1Csplit 
+  - Amount you wish the adjacent property owner contributes in form of a percentage (if applicable)?: Form1Csplit 
     required: false
-    datatype: currency
-    min: 0
-    default: 0.0
+    datatype: integer
+    min: 1
+    max: 100
+    default: 50
 ---
 #Questions about the fencing company, en garde!
 question: What fencing company has quoted the work?
@@ -130,14 +130,11 @@ fields:
   - State: F1PostalState
     choices:
       - SA
-      - NT
-      - NSW
-      - QLD
-      - WA
-      - ACT
   - Today's date: Form1Date
     datatype: date
     default:  ${ today() }
+auto terms:
+  My name: This must be your full name.
 ---
 #Questions for Form 3 begin
 #Starting with the name of the person who sent a Form 1 to the user. 
@@ -162,15 +159,29 @@ fields:
    show if: YesAlt
  - New cost: Form3NCost
    show if: YesAlt
- - Cost split: Form3Nsplit
+ - Cost split as percentage: Form3Nsplit
    show if: YesAlt
+   datatype: integer
+   min: 1
+   max: 100
+   default: 50
 ---
 #Last question for Form 3, we need the users name and address for responses. 
 question: What is your name and postal address?
 subquestion: This is for any responses. 
 fields: 
   - My name: Form3MyName
-  - My best postal address: Form3MyAddy
+  - Postal Adress (Street number and name): Form3MyAddy
+    help: |
+      This is your address you prefer a response be sent (if any).
+    hint: e.g. 1 Grove Street
+  - Suburb: F3Suburb
+  - City: F3PostalCity
+  - State: F3PostalState
+    choices:
+      - SA
+auto terms:
+  My name: This must be your full name.
 ---
 question: Have you received acceptance or cross notice?
 yesno: FLACWaiting
