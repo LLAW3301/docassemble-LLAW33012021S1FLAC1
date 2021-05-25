@@ -2,13 +2,13 @@
 #Welcome screen that contains explanation of app and a legal disclaimer. 
 mandatory: True
 question:  |
-  Flinders Legal Centre Fencing App
+  FLC Fencing App
 subquestion: |
-  Welcome to the Flinders Legal Centre Fencing App. This application is designed to help you with establishing a fence where one does not exist or responding to a form 1 request from someone else seeking to build a fence.
+  Follow the prompts to find out your legal rights and responsibilities surrounding building a new fence, where one does not exist.
 
-  Throughout this app you will see certain words are highlighted. This is to explain why we need that information to ensure we fill out the form correctly.
+  In this app you will see highlighted words. They explain questions to ensure the form is completed correctly.
   
-  This application is not providing legal advice, its purpose is just to help with filing forms or responding to forms served to you. 
+  **This is not to be taken as legal advice.** 
 
   Do you understand and agree to continue?
 auto terms:

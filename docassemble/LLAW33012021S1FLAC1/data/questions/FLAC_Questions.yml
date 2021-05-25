@@ -3,8 +3,8 @@
 question: Which of the below explains your situation best?
 field: FLACUserType
 choices: 
-  - I want to serve Form 1 notice.: 'FLACeligible'
-  - I'm responding to a Form 1 notice.: 'FLACresponding'
+  - I want to serve a Form 1 notice intention to build a fence.: 'FLACeligible'
+  - I want to object to a Form 1 notice by serving a Form 3 cross-notice.: 'FLACresponding'
   - I have sent a Form 1 notice and want to know my options.: 'FLACNWaiting'
 ---
   # First question, yesno if user wants to build a fence.
@@ -29,7 +29,7 @@ choices:
 ---
 # Name of neighbours and address or description of neighbours land
 question: What is the neighbours full name and address?
-subquestion: If you do not know the address you can describe the land.
+subquestion: This should be the adjacent property details.
 fields:
   - Full name: Form1Respondant
     help: |
@@ -52,7 +52,7 @@ fields:
 ---
 #Question for users address
 question: What is your full address?
-subquestion: This should be for the property you want to build the fence on. 
+subquestion: This should be for the property where you want to build the fence. 
 fields:
   - Street number and name: F1OStreet
     hint: e.g. 1 Grove Street
@@ -70,10 +70,10 @@ fields:
 #Questions about the fence
 question: Describe the proposed fence
 fields:
-  - What length will the fence be in metres?: F1Length
+  - What length will the fence be in metres?: Form1FLength
     datatype: number
     hint: e.g. 3.20
-  - Where on your property will the fence be?: F1Length2
+  - Where on your property will the fence be?: Form1FLength2
     input type: radio
     choices:
       - North
@@ -82,17 +82,17 @@ fields:
       - West
     help: |
       e.g. On the north side of my property
-  - What is the type of fence?: F1Type
+  - What is the type of fence?: Form1FType
     required: false
     input type: radio
     choices:
       - Brick
       - Metal
       - Stone
-  - What have you been quoted to build the fence?: F1Cost
+  - What have you been quoted to build the fence?: Form1FCost 
     datatype: currency
     min: 0
-  - Amount you wish the adjacent property owner contributes (if applicable)?: F1Split
+  - Amount you wish the adjacent property owner contributes (if applicable)?: Form1Csplit 
     required: false
     datatype: currency
     min: 0
@@ -101,7 +101,7 @@ fields:
 #Questions about the fencing company, en garde!
 question: What fencing company has quoted the work?
 fields:
-  - Name of company: F1FenceConame
+  - Name of company: Form1CName
     hint: e.g. Adelaide Fence Centre
   - Street number and name: F1FenceCoStreet
     hint: e.g. 1 Grove Street
@@ -121,7 +121,20 @@ question: What is your full name and postal address?
 subquestion: This is required for cross notice. 
 fields:
   - Name: Form1MyName
-  - Postal address: Form1MyAddy
+  - Postal Adress (Street number and name): F1PostalAddy
+    help: |
+      This is your address you prefer a response be sent (if any).
+    hint: e.g. 1 Grove Street
+  - Suburb: F1PostalSuburb
+  - City: F1PostalCity
+  - State: F1PostalState
+    choices:
+      - SA
+      - NT
+      - NSW
+      - QLD
+      - WA
+      - ACT
   - Today's date: Form1Date
     datatype: date
     default:  ${ today() }

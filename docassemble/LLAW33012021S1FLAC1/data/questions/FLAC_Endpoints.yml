@@ -84,13 +84,13 @@ attachment:
 event: FLACF1Info
 question: Post-service process. 
 subquestion:
-  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you can rebut that but it needs to be within 30 days. 
+  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days. 
   
   
-  If 30 days has passed and you have not received any cross notice you can begin with construction of the fence. If you begin before 30 days has passed you will not be eligible to recover costs. 
+  If 30 days has passed and you have not received cross notice you can begin with construction of the fence. If you begin before 30 days has passed you will not be eligible to recover costs. 
   
   
-  Sometimes it may just be easier to speak to your neighbour verbally if possible. 
+  Speaking with your neighbour may be the quickest way to work through objections.
 
 
   If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
@@ -106,13 +106,13 @@ subquestion:
   You have selected that you have received cross notice or acceptance.
   
   
-  If you have received cross notice you can accept the new terms or send your own cross notice within 30 days. If you restart this app and select you have received a Form 1 we will even help you fill the form. 
+  If you have received cross notice you can accept the new terms or send your own cross notice within 30 days. If you restart this app and select I want to object to a Form 1, the app will guide you through the process.
   
   
   If you have received acceptance or 30 days has passed then you can go ahead and start building. 
 
 
-  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again.
 buttons:
   - Exit: exit
     url: https://www.flinderslegalcentre.net.au
