@@ -59,9 +59,9 @@ buttons:
 event: Respondant
 question: Form 3 Completed
 subquestion: |
-  Based off your answers you are responding to a Form 1 notice from a neighbour. Form 3 has been completed below with your answers please download and check over the form before serving.
+  A Form 3 document has been completed below with your answers please download and check over the form before serving.
 
-  Service must be done in person or by registered post.
+  Service must be done in person or by registered post and the Form must be signed at the bottom of the page.
 buttons:
   - Exit: exit
     url: https://www.flinderslegalcentre.net.au/
@@ -77,9 +77,9 @@ attachment:
 question: Form 1 Completed
 event: Form1
 subquestion: |
-  Based off your answers you are seeking to serve a notice Form 1. Form 1 has been completed below with your answers please download and check over the form before serving. 
+ A Form 1 document has been completed below with your answers please download and check over the form before serving. 
 
-  Service must be done in person or by registered post.
+  Service must be done in person or by registered post and the Form must be signed at the bottom of the page.
 
 buttons:
   - Exit: exit
@@ -94,7 +94,7 @@ attachment:
 ---
 event: FLACF1Info
 question: Post-service process. 
-subquestion:
+subquestion: |
   After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days. 
   
   
@@ -113,7 +113,7 @@ buttons:
 ---
 event: FLACBuild
 question: Post-service process. 
-subquestion:
+subquestion: |
   You have selected that you have received cross notice or acceptance.
   
   
@@ -131,7 +131,7 @@ buttons:
 ---
 event: IneligibleDontknow
 question: Not eligible for application. 
-subquestion:
+subquestion: |
   You need to do all you can to find out the owner of the property. If the property is being sold you can send the notice to both the vendor and purchaser. 
   
   
@@ -143,7 +143,7 @@ buttons:
 ---
 event: Form3Accept
 question: Post-service process. 
-subquestion:
+subquestion: |
   You have selected that you have received a Form 1 and have no objections.
   
   

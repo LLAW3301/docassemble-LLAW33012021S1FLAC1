@@ -41,11 +41,6 @@ fields:
   - State: F1RState
     choices:
       - SA
-      - NT
-      - NSW
-      - QLD
-      - WA
-      - ACT
   - Description of land (optional): F1RLand
     input type: area
     required: false
@@ -61,11 +56,6 @@ fields:
   - State: F1OState
     choices:
       - SA
-      - NT
-      - NSW
-      - QLD
-      - WA
-      - ACT
 ---
 #Questions about the fence
 question: Describe the proposed fence
@@ -99,7 +89,7 @@ fields:
     default: 50
 ---
 #Questions about the fencing company, en garde!
-question: What fencing company has quoted the work?
+question: Which fencing company has quoted the work?
 fields:
   - Name of company: Form1CName
     hint: e.g. Adelaide Fence Centre
@@ -110,11 +100,6 @@ fields:
   - State: F1FenceCoState
     choices:
       - SA
-      - NT
-      - NSW
-      - QLD
-      - WA
-      - ACT
 ---
 #Final questions for Form 1 ending with name and address for cross notice
 question: What is your full name and postal address?
@@ -168,7 +153,7 @@ fields:
 ---
 #Last question for Form 3, we need the users name and address for responses. 
 question: What is your name and postal address?
-subquestion: This is for any responses. 
+subquestion: This is for possible cross-notice. 
 fields: 
   - My name: Form3MyName
   - Postal Adress (Street number and name): Form3MyAddy
