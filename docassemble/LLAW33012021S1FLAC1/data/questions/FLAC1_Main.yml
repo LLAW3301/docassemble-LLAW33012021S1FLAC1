@@ -12,7 +12,12 @@ metadata:
 features:
   debug: false
   hide standard menu: true
+  centered: false
+  navigation back button: False
+  css: FLAC1_style.css
+  
 #Welcome screen that contains explanation of app and a legal disclaimer. 
+
 mandatory: True
 question:  |
   FLC Fencing App

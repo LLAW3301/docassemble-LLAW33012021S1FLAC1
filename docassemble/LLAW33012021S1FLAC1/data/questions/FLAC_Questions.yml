@@ -1,4 +1,11 @@
 ---
+interview help:
+  label: More information
+  heading: Help
+  content: |
+    A Form 1 notice is...
+    A Form 3 Cross notice is...
+    
 # Branching question that decides what type of user the person is. 
 question: Which of the below explains your situation best?
 field: FLACUserType
