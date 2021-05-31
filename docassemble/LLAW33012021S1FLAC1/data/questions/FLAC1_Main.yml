@@ -1,4 +1,17 @@
 ---
+metadata:
+  title: |
+    FLC Fencing App
+  authors:
+    - name: Mikayla Golding
+    - name: Hannah Mitchell
+    - name: Jordan Mitchell
+    - name: Patrick Lynch
+    - name: Rory Egarr
+---
+features:
+  debug: false
+  hide standard menu: true
 #Welcome screen that contains explanation of app and a legal disclaimer. 
 mandatory: True
 question:  |
@@ -76,3 +89,17 @@ code: |
     IneligibleDontknow
   else: pass
 --- 
+# Modify the post default screen part to attribute work to Flinders and your client
+# Remember to replace XXXX with your client's name.
+default screen parts:
+  post: |
+    <div style="display: flex; height: 200px; align-items: flex-end; flex-direction: row-reverse">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: right">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with Flinders Legal Centre
+    </i></small></cite>
+    </div>
+    </div>
+---

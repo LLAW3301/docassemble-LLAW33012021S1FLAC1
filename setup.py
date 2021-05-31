@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 setup(name='docassemble.LLAW33012021S1FLAC1',
       version='1.0.0.0',
       description=('FLAC1-Software '),
-      long_description='# docassemble.LLAW33012021S1FLAC1\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\nMark Ferraretto, mark.ferraretto@flinders.edu.au\r\n\r\n',
+      long_description="# FLAC1 - FLC Fencing App\r\n\r\n# Description\r\n\r\nThe FLC Fencing App is designed to guide property owners through the lawful process of resolving fencing issues. This application guides users in providing solutions for erecting a fence where their was not one previously and responding to a 'Form 1' notice. \r\n\r\n\r\n",
       long_description_content_type='text/markdown',
       author='Patrick Lynch',
       author_email='mark.ferraretto@flinders.edu.au',
