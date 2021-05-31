@@ -1,5 +1,52 @@
-/* FLAC1 stylesheet */
+/* FLAC1 stylesheet 
 
-p {
-    color: purple; 
+Flinders blue = (1,28,44)
+Flinders yellow = (255,211,0)
+
+*/
+
+.navbar {
+
+  background-color: rgb(1,28,44) !important;
+  height: 80px !important; 
+
+}
+
+.navbar .nav-item a{
+
+  color: white !important;
+
+}
+
+.element.style {
+ 
+  height: 400px !important;
+  
+}
+
+.row.tab-content {
+ 
+  height: 600px;
+  /* Begins to cut off buttons any smaller */
+  width: 1300px;
+  /* Was 1140 */
+  
+}
+
+.btn-light {
+ 
+  
+}
+
+.btn-primary {
+/*
+  background-color: rgb(1,28,44)
+*/  
+}
+
+.btn-primary:hover{
+/* 
+  background-color: rgba(1,28,44, 0.15);
+  border-color: rgb(1,28,44);
+*/
 }
