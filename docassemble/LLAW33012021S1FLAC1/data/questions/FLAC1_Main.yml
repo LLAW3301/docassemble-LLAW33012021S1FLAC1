@@ -16,7 +16,7 @@ features:
   navigation back button: false
   css: FLAC1_style.css
   hide navbar: false
-  
+---  
 #Welcome screen that contains explanation of app and a legal disclaimer. 
 
 mandatory: True
