@@ -61,7 +61,7 @@ question: Form 3 Completed
 subquestion: |
   A Form 3 document has been completed below with your answers please download and check over the form before serving.
 
-  Service must be done in person or by registered post and the Form must be signed at the bottom of the page.
+  **Service must be done in person or by registered post and the Form must be signed at the bottom of the page.**
 buttons:
   - Exit: exit
     url: https://www.flinderslegalcentre.net.au/
@@ -79,7 +79,7 @@ event: Form1
 subquestion: |
  A Form 1 document has been completed below with your answers please download and check over the form before serving. 
 
-  Service must be done in person or by registered post and the Form must be signed at the bottom of the page.
+  **Service must be done in person or by registered post and the Form must be signed at the bottom of the page.**
 
 buttons:
   - Exit: exit
