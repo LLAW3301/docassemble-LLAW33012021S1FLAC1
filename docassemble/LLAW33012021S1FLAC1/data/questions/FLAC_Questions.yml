@@ -14,43 +14,27 @@ choices:
   - I want to object to a Form 1 notice by serving a Form 3 cross-notice.: 'FLACresponding'
   - I have sent a Form 1 notice and want to know my options.: 'FLACNWaiting'
 ---
-  # First question, yesno if user wants to build a fence.
-question: Are you looking to build a fence?
-yesno: FLACnofence
----
-# Second question, a noyes is used isntead as we want yes to direct to ineligible as that is outside the scope of our app. 
-question: Is there already a fence there?
-noyes: FLACestablished
----
-# Third question, all questions so far determine if user's issue is within scope.
-question: Are you the owner of the property?
-yesno: FLACowner
----
-# Final ineligible question, this one for government property and directing to FLC. 
-question: Do you know the owner of the property? 
-field: FLACNType
-choices: 
-  - Yes: FLACNKnown
-  - No: FLACNUnknown
-  - Yes, it's Council / Government: FLACcouncil
----
 # Name of neighbours and address or description of neighbours land
 question: What is your neighbour's full name and address?
 subquestion: This should be the details of the person who owns the adjacent property.
 fields:
   - Full name: Form1Respondant
     help: |
-      Your neighbour's full name e.g. John Smith     
+      Your neighbour's full name e.g. John Smith
+    default: John Smith
   - Street number and name: F1RStreet
     hint: e.g. 12 Currie Street
     help: |
-      Street number followed by street name, for example: 12 Currie Street 
+      Street number followed by street name, for example: 12 Currie Street
+    default: 120 Crown Street
   - Suburb/City: F1RSuburb
     help: |
       Your suburb followed by the city or town you live in
-    hint: e.g. North Adelaide, Adelaide     
+    hint: e.g. North Adelaide, Adelaide
+    default: Auldana, Adelaide
   - Post Code: F1RCity
     datatype: integer
+    default: 5002
 ---
 #Question for users address
 question: What is your full address?
@@ -60,12 +44,15 @@ fields:
     hint: e.g. 12 Currie Street
     help: |
       Street number followed by street name, for example: 12 Currie Street
+    default: 122 Crown Street
   - Suburb/City: F1OSuburb
     hint: North Adelaide, Adelaide
     help: |
       Your suburb followed by the city or town you live in
+    default: Auldana, Adelaide
   - Post Code: F1OCity
     datatype: integer
+    default: 5002
 ---
 #Questions about the fence
 question: Describe the proposed fence
@@ -80,6 +67,7 @@ fields:
       This is the vertical length (height) of the proposed fence.
     datatype: number
     hint: e.g. 2.20
+    default: 2.20
   - note: Please note fences taller than two meters or fences higher than one metre and less than six meters from a road intersection may require counsil planning approval. You should check with your local council about fences that need development approval.
     show if:
       variable: Form1FType
@@ -98,6 +86,7 @@ fields:
       What side of your property will the fence be (e.g. On the North side of my         property).
   - What have you been quoted to build the fence?: Form1FCost 
     datatype: currency
+    default: 1,250
     min: 0
   - Amount you wish the adjacent property owner contributes in form of a percentage (if applicable)?: Form1Csplit 
     required: false
@@ -111,38 +100,48 @@ question: Which fencing company has quoted you for the work?
 fields:
   - Name of company: Form1CName
     hint: e.g. Adelaide Fence Centre
+    default: Adelaide Fence Centre
   - Street number and name: F1FenceCoStreet
+    default: 400 West Terrace
     help: |
       Street number followed by street name.
     hint: e.g. 120 King William Road
   - Suburb/City: F1FenceCoSuburb
     help: |
       Suburb followed by City or Town, e.g. North Adelaide, Adelaide
+    default: Adelaide CBD, Adelaide
   - Post Code: F1FenceCoCity
     datatype: integer 
+    default: 5000
 ---
 #Final questions for Form 1 ending with name and address for cross notice
 question: What is your full name and postal address?
 subquestion: This is required for cross notice. We ask this question again in case your best postal address is different from the address the where the fence will be built.
 fields:
   - Full name: Form1MyName
+    default: Emily Young
   - Postal Adress (Street number and name): F1PostalAddy
+    default: 17 Queen Street
     help: |
       This is the address you prefer a response be sent (if a response is sent).
     hint: e.g. 1 Grove Street
   - Suburb/City: F1PostalSuburb
+    default: West Beach, Adelaide
   - Post Code: F1PostalCity
+    default: 5055
   - Today's date: Form1Date
     datatype: date
     default:  ${ today() }
 auto terms:
   My name: This must be your full name.
+  default: Josh Patrick
 ---
 #Questions for Form 3 begin
 #Starting with the name of the person who sent a Form 1 to the user. 
 question: What is the name of the person who gave notice to build a fence?
 fields:
   - Full name: Form3NName
+    default: Tony Montana
 ---
 #Next we ask the user for the date and time the Form 1 was made.
 question: What is the date on the notice form?
@@ -155,6 +154,7 @@ fields:
 question: What do you object to from the Form 1?
 fields: 
  - Objections : Form3Objection
+   default: The fence is too short
    input type: area
    help: |
      What are your objections to the proposed fence? (e.g. The fence is not tall enough)
@@ -162,12 +162,15 @@ fields:
    datatype: yesnoradio
  - Counter-proposal: Form3Alternative
    input type: area
+   default: I propose that the fence is raised to 2.3 meters.
    help: |
      What do you propose the fence should require?
    show if: YesAlt
  - New cost: Form3NCost
    help: |
      What is the updated cost of these changes?
+   default: 2,750
+   datatype: currency
    show if: YesAlt
  - Cost split as percentage: Form3Nsplit
    help: |
@@ -184,12 +187,16 @@ question: What is your name and postal address?
 subquestion: This is for possible cross-notice. 
 fields: 
   - My name: Form3MyName
+    default: Emily Young
   - Postal Adress (Street number and name): Form3MyAddy
+    default: 17 Queen Street
     help: |
       This is your address you prefer a response be sent (if a response is sent).
     hint: e.g. 1 Grove Street
   - Suburb/City: F3Suburb
+    default: West Beach, Adelaide
   - Post Code: F3PostalCity
+    default: 5055
     datatype: integer
 auto terms:
   My name: This must be your full name.
