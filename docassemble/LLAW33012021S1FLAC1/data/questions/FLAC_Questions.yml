@@ -82,11 +82,12 @@ fields:
       - East
       - South
       - West
+    default: North
     help: |
       What side of your property will the fence be (e.g. On the North side of my         property).
-  - What have you been quoted to build the fence?: Form1FCost 
+  - How much have you been quoted to build the fence?: Form1FCost 
     datatype: currency
-    default: 1,250
+    default: 1250
     min: 0
   - Amount you wish the adjacent property owner contributes in form of a percentage (if applicable)?: Form1Csplit 
     required: false
@@ -148,7 +149,8 @@ question: What is the date on the notice form?
 fields:
   - Date of notice: Form3NFulldate
     datatype: date
-
+    default: ${ today() }
+  - note: If a Form 3 cross-notice is not served within 30 days then you are deemed to have accepted the terms in the Form 1 originally received.
 ---
 #We now ask the user what objections that have to the Form 1.
 question: What do you object to from the Form 1?
