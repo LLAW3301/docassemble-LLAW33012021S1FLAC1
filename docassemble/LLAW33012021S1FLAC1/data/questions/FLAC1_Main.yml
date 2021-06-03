@@ -90,6 +90,7 @@ code: |
     Form3NDay = day_of(Form3NFulldate)
     Form3NMonth = month_of(Form3NFulldate, as_word=True)
     Form3NDate = today(format='d/M/YYYY')
+    Form3DayOrdinal = ordinal_number(Form3NDay, use_word=False)
   elif FLACUserType == 'FLACeligible':
     Form1Date = today(format='d/M/YYYY')
   else: pass
