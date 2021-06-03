@@ -65,7 +65,7 @@ subquestion: |
 buttons:
   - Exit: exit
     url: https://www.flinderslegalcentre.net.au/
-  - Restart: Restart
+  - Restart: restart
 attachment: 
   - name: Form 3
     filename: Form 3
@@ -77,14 +77,18 @@ attachment:
 question: Form 1 Completed
 event: Form1
 subquestion: |
- A Form 1 document has been completed below with your answers please download and check over the form before serving. 
-
+  A Form 1 document has been completed below with your answers please download and check over the form before serving. 
+  
   **Service must be done in person or by registered post and the Form must be signed at the bottom of the page.**
+  
+  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days.
+  
+  If 30 days has passed and you have not received cross notice you can begin with construction of the fence. If you begin before 30 days has passed you will not be eligible to recover costs.
 
 buttons:
   - Exit: exit
     url: https://www.flinderslegalcentre.net.au/
-  - Restart: Restart
+  - Restart: restart
 attachment: 
   - name: Form 1
     filename: Form 1

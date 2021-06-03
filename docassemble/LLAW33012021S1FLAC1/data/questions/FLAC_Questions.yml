@@ -1,15 +1,13 @@
 ---
-interview help:
-  label: More information
-  heading: Help
-  content: |
-    A Form 1 notice is...
-    A Form 3 Cross notice is...
-    
 # Branching question that decides what type of user the person is. 
 question: Which of the below explains your situation best?
-subquestion: A Form 1 is a notice of intention to build a fence
-  A Form 3 is cross-notice sent in response to a Form 1. 
+subquestion: |
+
+  * A Form 1 is a notice of intention to build a fence. Select this option if you wish to build a fence.
+
+  * A Form 3 is a cross-notice sent in response to a Form 1. Select this if you wish to respond to a Form 1 you have received. 
+  
+  * If you have sent a Form 1 notice and wish to know how to proceed select the last option. 
 field: FLACUserType
 choices: 
   - I want to serve a Form 1 notice of intention to build a fence.: 'FLACeligible'
@@ -37,50 +35,67 @@ choices:
   - Yes, it's Council / Government: FLACcouncil
 ---
 # Name of neighbours and address or description of neighbours land
-question: What is the neighbours full name and address?
-subquestion: This should be the adjacent property's details.
+question: What is your neighbour's full name and address?
+subquestion: This should be the details of the person who owns the adjacent property.
 fields:
   - Full name: Form1Respondant
     help: |
-      your neighbour's full name
+      Your neighbour's full name e.g. John Smith     
   - Street number and name: F1RStreet
-    hint: e.g. 1 Grove Street
+    hint: e.g. 12 Currie Street
+    help: |
+      Street number followed by street name, for example: 12 Currie Street 
   - Suburb/City: F1RSuburb
+    help: |
+      Your suburb followed by the city or town you live in
+    hint: e.g. North Adelaide, Adelaide     
   - Post Code: F1RCity
-  - Description of land (optional): F1RLand
-    input type: area
-    required: false
+    datatype: integer
 ---
 #Question for users address
 question: What is your full address?
 subquestion: This should be for the property where you want to build the fence. 
 fields:
   - Street number and name: F1OStreet
-    hint: e.g. 1 Grove Street
+    hint: e.g. 12 Currie Street
+    help: |
+      Street number followed by street name, for example: 12 Currie Street
   - Suburb/City: F1OSuburb
+    hint: North Adelaide, Adelaide
+    help: |
+      Your suburb followed by the city or town you live in
   - Post Code: F1OCity
+    datatype: integer
 ---
 #Questions about the fence
 question: Describe the proposed fence
 fields:
-  - What length will the fence be in metres?: Form1FLength
+  - What is the type of fence?: Form1FType
+    required: true
+    choices:
+      - Masonry 
+      - Other
+  - What height will the fence be in metres?: Form1FLength
+    help: |
+      This is the vertical length (height) of the proposed fence.
     datatype: number
-    hint: e.g. 3.20
+    hint: e.g. 2.20
+  - note: Please note fences taller than two meters or fences higher than one metre and less than six meters from a road intersection may require counsil planning approval. You should check with your local council about fences that need development approval.
+    show if:
+      variable: Form1FType
+      is: Other
+  - note: Masonry fences taller than one metre may require council planning approval. You should check with your local council about fences that need development approval.
+    show if:
+      variable: Form1FType
+      is: Masonry
   - Where on your property will the fence be?: Form1FLength2
-    input type: radio
     choices:
       - North
       - East
       - South
       - West
     help: |
-      e.g. On the north side of my property
-  - What is the type of fence?: Form1FType
-    required: false
-    input type: radio
-    choices:
-      - Masonry 
-      - Other
+      What side of your property will the fence be (e.g. On the North side of my         property).
   - What have you been quoted to build the fence?: Form1FCost 
     datatype: currency
     min: 0
@@ -92,13 +107,17 @@ fields:
     default: 50
 ---
 #Questions about the fencing company.
-question: Which fencing company has quoted the work?
+question: Which fencing company has quoted you for the work?
 fields:
   - Name of company: Form1CName
     hint: e.g. Adelaide Fence Centre
   - Street number and name: F1FenceCoStreet
-    hint: e.g. 1 Grove Street
+    help: |
+      Street number followed by street name.
+    hint: e.g. 120 King William Road
   - Suburb/City: F1FenceCoSuburb
+    help: |
+      Suburb followed by City or Town, e.g. North Adelaide, Adelaide
   - Post Code: F1FenceCoCity
     datatype: integer 
 ---
@@ -106,10 +125,10 @@ fields:
 question: What is your full name and postal address?
 subquestion: This is required for cross notice. We ask this question again in case your best postal address is different from the address the where the fence will be built.
 fields:
-  - Name: Form1MyName
+  - Full name: Form1MyName
   - Postal Adress (Street number and name): F1PostalAddy
     help: |
-      This is your address you prefer a response be sent (if any).
+      This is the address you prefer a response be sent (if a response is sent).
     hint: e.g. 1 Grove Street
   - Suburb/City: F1PostalSuburb
   - Post Code: F1PostalCity
@@ -123,7 +142,7 @@ auto terms:
 #Starting with the name of the person who sent a Form 1 to the user. 
 question: What is the name of the person who gave notice to build a fence?
 fields:
-  - Name: Form3NName
+  - Full name: Form3NName
 ---
 #Next we ask the user for the date and time the Form 1 was made.
 question: What is the date on the notice form?
@@ -136,18 +155,29 @@ fields:
 question: What do you object to from the Form 1?
 fields: 
  - Objections : Form3Objection
+   input type: area
+   help: |
+     What are your objections to the proposed fence? (e.g. The fence is not tall enough)
  - Do you have any alternatives to propose?: YesAlt
    datatype: yesnoradio
  - Counter-proposal: Form3Alternative
+   input type: area
+   help: |
+     What do you propose the fence should require?
    show if: YesAlt
  - New cost: Form3NCost
+   help: |
+     What is the updated cost of these changes?
    show if: YesAlt
  - Cost split as percentage: Form3Nsplit
+   help: |
+     How much do you wish your neighbor contributes? (if applicable)
    show if: YesAlt
    datatype: integer
    min: 1
    max: 100
    default: 50
+   required: false
 ---
 #Last question for Form 3, we need the users name and address for responses. 
 question: What is your name and postal address?
@@ -156,10 +186,11 @@ fields:
   - My name: Form3MyName
   - Postal Adress (Street number and name): Form3MyAddy
     help: |
-      This is your address you prefer a response be sent (if any).
+      This is your address you prefer a response be sent (if a response is sent).
     hint: e.g. 1 Grove Street
   - Suburb/City: F3Suburb
   - Post Code: F3PostalCity
+    datatype: integer
 auto terms:
   My name: This must be your full name.
 ---

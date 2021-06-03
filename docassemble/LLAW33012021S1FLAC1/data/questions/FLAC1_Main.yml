@@ -23,11 +23,14 @@ mandatory: True
 question:  |
   FLC Fencing App
 subquestion: |
+
+  **This application is for South Australian properties only.**
+
   Follow the prompts to find out your legal rights and responsibilities surrounding building a new fence, where one does not exist.
 
-  In this app you will see highlighted words. They explain questions to ensure the form is completed correctly.
+  In this app you will see highlighted words. They offer further explanation to questions asked in this application, if required. Please follow them correctly.
   
-  **This application is made to only work in South Australia**
+
   
   **This is not to be taken as legal advice.** 
 
@@ -97,8 +100,6 @@ code: |
     IneligibleDontknow
   else: pass
 --- 
-# Modify the post default screen part to attribute work to Flinders and your client
-# Remember to replace XXXX with your client's name.
 default screen parts:
   post: |
     <div style="display: flex; align-items: flex-end; flex-direction: row-reverse; position: fixed; bottom: 0;">
