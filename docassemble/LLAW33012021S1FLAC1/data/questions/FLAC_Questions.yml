@@ -156,7 +156,7 @@ fields:
 question: What do you object to from the Form 1?
 fields: 
  - Objections : Form3Objection
-   default: The fence is too short
+   default: The fence is too short.
    input type: area
    help: |
      What are your objections to the proposed fence? (e.g. The fence is not tall enough)
