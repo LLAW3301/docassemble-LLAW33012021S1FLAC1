@@ -1,73 +1,116 @@
 ---
+metadata:
+  title: |
+    FLC Fencing App
+  authors:
+    - name: Mikayla Golding
+    - name: Hannah Mitchell
+    - name: Jordan Mitchell
+    - name: Patrick Lynch
+    - name: Rory Egarr
+---
+features:
+  debug: false
+  hide standard menu: true
+  centered: true
+  navigation back button: false
+  css: FLAC1_style.css
+  hide navbar: false
+---  
 #Welcome screen that contains explanation of app and a legal disclaimer. 
+
 mandatory: True
 question:  |
-  Flinders Legal Centre Fencing App
+  FLC Fencing App
 subquestion: |
-  Welcome to the Flinders Legal Centre Fencing App. This application is designed to help you with establishing a fence where one does not exist or responding to a form 1 request from someone else seeking to build a fence.
 
-  This application is not providing legal advice, its purpose is just to help with filing forms or responding to forms served to you. 
+  **This application is for South Australian properties only.**
+
+  Follow the prompts to find out your legal rights and responsibilities surrounding building a new fence, where one does not exist.
+
+  In this app you will see highlighted words. They offer further explanation to questions asked in this application, if required. Please follow them correctly.
+  
+
+  
+  **This is not to be taken as legal advice.** 
 
   Do you understand and agree to continue?
-
+auto terms:
+  highlighted: Any words highlighted like this will provide clarification on how to answer. 
 buttons:
+  - Agree: continue 
   - Disagree: exit
     url: https://www.flinderslegalcentre.net.au/
-  - Agree: continue 
+---
+objects:
+  - endpoint: DADict
+  - calendardate: DADateTime
 ---
 include: 
   - FLAC_Questions.yml
+  - FLAC_Endpoints.yml
+---
+code: |
+ if FLACnofence == False:
+   Ineligiblenofence
+---
+code: |
+ if FLACestablished == False:
+   Ineligiblefence
+---
+code: |
+ if FLACowner == False:
+   Ineligibleowner
 ---
 mandatory: True
 #First block used to determine whether user is within scope of application.  
 # If we're eligible then the questions for Form 1 are asked so it can be filed.
 code: |
-  if FLACeligible == True:
-    Form1
-  else: pass
+  if FLACUserType == 'FLACeligible': Form1
 ---
+mandatory: True
 code: |
- if FLACresponding == True:
-    Respondant
+ if FLACUserType == 'FLACresponding': Respondant
+---
+mandatory: True
+code: |
+ if FLACUserType == 'FLACNWaiting': FLACF1Info
  else: pass
 ---
+mandatory: True
 code: |
-  if FLACeligible == False:
-    # If we're not eligible go to the ineligible endpoint
-    ineligible
-  # Ineglibile screen with explanation as to options. 
+ if FLACWaiting == False:
+   FLACF1Info
+ elif FLACWaiting == True: 
+   FLACBuild
+---
+# This code seperates the date of the Form 1 notice the user received into the two seperate fields in the Form 3 so the question isn't split up.
+code: |
+  if FLACUserType == 'FLACresponding':
+    Form3NDay = day_of(Form3NFulldate)
+    Form3NMonth = month_of(Form3NFulldate, as_word=True)
+    Form3NDate = today(format='d/M/YYYY')
+    Form3DayOrdinal = ordinal_number(Form3NDay, use_word=False)
+  elif FLACUserType == 'FLACeligible':
+    Form1Date = today(format='d/M/YYYY')
   else: pass
 ---
-event: ineligible
-question: Not eligible for application. 
-subquestion:
-  This application can only assist property owners with building a fence where there isn't one already. 
-
-  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
-buttons:
-  - Exit: exit
-    url: https://www.flinderslegalcentre.net.au
-  - Restart: restart
----
-# End screen for responding to notice and generating Form 3
-event: Respondant
-question: Form 3 Filed
-subquestion: Based off your answers you are responding to a Form 1 notice from a neighbour. Form 3 has been autofiled below with your answers please download and check over the form before serving. 
-attachment: |
-  [Form3]
----
-# End screen for Form 1, generates filled form from questions. 
-question: 'Form 1 Filed'
-event: Form1
-subquestion: Based off your answers you are seeking to serve a notice form / Form 1. Form 1 has been autofiled below with your answers please download and check over the form before serving. 
-buttons:
-  - Exit: exit
-    url: https://www.flinderslegalcentre.net.au/
-  - Restart: Restart
-attachment: 
-  - name: Form 1 Filled
-    filename: Form 1
-    valid formats:
-      - pdf
-    docx template file: Form1.docx
+code: |
+  if FLACNType == 'FLACcouncil':
+    IneligibleCouncil
+  elif FLACNType == 'FLACNUnknown':
+    IneligibleDontknow
+  else: pass
+--- 
+default screen parts:
+  post: |
+    <div style="display: flex; align-items: flex-end; flex-direction: row-reverse; position: fixed; bottom: 0;">
+    <div style="margin: 5px"><img src="https://staff.flinders.edu.au/etc.clientlibs/flinders/clientlibs/clientlib-site/resources/images/flinderuni_main_logo_black.png" height="40">
+    </div>
+    <div style="margin: 5px; text-align: right">
+    <cite><small><i>
+    Developed by Flinders University in collaboration with Flinders Legal Centre
+    </i></small></cite>
+    </div>
+    </div>
 ---

@@ -1,0 +1,163 @@
+---
+event: Ineligiblenofence
+question: Not eligible for application. 
+subquestion: This application can only assist property owners with building a fence where there isn't one already. 
+
+  
+  The options picked show you do not want to build a fence, which means we cannot assist you. 
+  
+  
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: Ineligiblefence
+question: Not eligible for application. 
+subquestion:
+  This application can only assist property owners with building a fence where there isn't one already. 
+
+
+  The options picked show you that a fence already exists. This application can only assist with building a fence where one does not exist or responding to a notice to build a fence. 
+  
+  
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: Ineligibleowner
+question: Not eligible for application. 
+subquestion:
+  This application can only assist property owners with building a fence where there isn't one already. 
+  
+  
+  The options picked show that you are not the property owner. The forms for notice of building a fence are for property owner use. 
+
+
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: IneligibleCouncil
+question: Not eligible for application. 
+subquestion:
+  The options picked show that the neighbouring property may be government property, in this case it is best to speak to the Flinders Legal Centre for advice. 
+  
+  
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+# End screen for responding to notice and generating Form 3
+event: Respondant
+question: Form 3 Completed
+subquestion: |
+  A Form 3 document has been completed below with your answers please download and check over the form before serving.
+
+  **Service must be done in person or by registered post and the Form must be signed at the bottom of the page.**
+  
+  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days, otherwise you can accept the terms.
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au/
+  - Restart: restart
+attachment: 
+  - name: Form 3
+    filename: Form 3
+    valid formats:
+      - pdf
+    docx template file: Form3.docx
+---
+# End screen for Form 1, generates filled form from questions. 
+question: Form 1 Completed
+event: Form1
+subquestion: |
+  A Form 1 document has been completed below with your answers please download and check over the form before serving. 
+  
+  **Service must be done in person or by registered post and the Form must be signed at the bottom of the page.**
+  
+  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days, otherwise you can accept the terms.
+  
+  If 30 days has passed and you have not received cross notice you can begin with construction of the fence. If you begin before 30 days has passed you will not be eligible to recover costs.
+
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au/
+  - Restart: restart
+attachment: 
+  - name: Form 1
+    filename: Form 1
+    valid formats:
+      - pdf
+    docx template file: Form1.docx
+---
+event: FLACF1Info
+question: Post-service process. 
+subquestion: |
+  After service you need to wait 30 days to allow for cross notice. If you receive cross notice that you do not agree with you must rebut within 30 days. 
+  
+  
+  If 30 days has passed and you have not received cross notice you can begin with construction of the fence. If you begin before 30 days has passed you will not be eligible to recover costs. 
+  
+  
+  Speaking with your neighbour may be the quickest way to work through objections.
+
+
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+need: FLACWaiting
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: FLACBuild
+question: Post-service process. 
+subquestion: |
+  You have selected that you have received cross notice or acceptance.
+  
+  
+  If you have received cross notice you can accept the new terms or send your own cross notice within 30 days. If you restart this app and select I want to object to a Form 1, the app will guide you through the process.
+  
+  
+  If you have received acceptance or 30 days has passed then you can go ahead and start building. 
+
+
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again.
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: IneligibleDontknow
+question: Not eligible for application. 
+subquestion: |
+  You need to do all you can to find out the owner of the property. If the property is being sold you can send the notice to both the vendor and purchaser. 
+  
+  
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
+---
+event: Form3Accept
+question: Post-service process. 
+subquestion: |
+  You have selected that you have received a Form 1 and have no objections.
+  
+  
+  You can either wait 30 days at which point the neighbour can begin building the fence or let your neighbour know you accept the terms. 
+
+
+  If you press exit you will be directed to the Flinders Legal Centre website to seek assistance with your issue. If you selected the wrong option please press restart to start the app again. 
+buttons:
+  - Exit: exit
+    url: https://www.flinderslegalcentre.net.au
+  - Restart: restart
